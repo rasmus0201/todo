@@ -1,0 +1,196 @@
+body {
+    background-color: #eceff0;
+}
+
+body,
+input {
+    font: 1em "Open Sans", sans-serif;
+    color: #363639;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 1px dashed #363639;
+    color: #363639;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+/* List */
+.list {
+    background-color: #fff;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: -3px 3px 2px rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+}
+
+.list .header {
+    font-family: "Shadows Into Light Two", cursive;
+    margin: 0 0 10px;
+}
+
+/* Items */
+.items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.item-wrap:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.item-wrap .pull-left {
+    width: 75%;
+}
+
+.item-wrap .pull-right {
+    width: 25%;
+    text-align: right;
+}
+
+.items li .done-button:hover {
+    opacity: 1;
+}
+
+.items li .done-button:active {
+    opacity: 1;
+    background-color: #cdd2d4;
+    box-shadow: rgba(0, 0, 0, 0.29) 0 4px 12px -4px inset;
+}
+
+.items .item.done {
+    text-decoration: line-through;
+}
+
+.item-add .input,
+.items li {
+    border: none;
+    border-bottom: 1px dashed #ccc;
+    margin: 0 0 15px;
+    padding: 15px 0;
+    word-break: break-all;
+}
+
+.input {
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Done Button */
+.items .done-button {
+    display: inline-block;
+    font-size: 0.8em;
+    background-color: #d9dfe1;
+    color: #363639;
+    padding: 3px 6px;
+    border: none;
+    opacity: 0.4;
+    border-radius: 2px;
+    transition: all linear 0.2s;
+}
+
+/* Submit Button*/
+.submit {
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-top: 10px;
+    border-bottom: 3px solid #ddd;
+    transition: all linear 0.2s;
+    border-radius: 2px;
+}
+
+.submit:hover {
+    background-color: #ddd;
+}
+
+.submit:active {
+    background-color: #cdd2d4;
+    border-bottom: 3px solid #cdd2d4;
+    box-shadow: rgba(0, 0, 0, 0.29) 0 4px 12px -4px inset;
+}
+
+/* Dog Ear*/
+.box {
+    position: relative;
+}
+
+.dog-ear:after,
+.dog-ear:before {
+    content: '';
+    display: block;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+.dog-ear:before {
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #eceff0;
+}
+
+.dog-ear:after {
+    border-top: 20px solid transparent;
+    border-left: 20px solid rgba(221, 221, 221, .8);
+}
+
+/* Edit Todo List*/
+.item-wrap .input,
+.todo-list > .input {
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Empty */
+.nothing {
+    margin: 0 0 15px;
+    padding: 15px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+/*List settings*/
+.list-status {
+    display: block;
+    margin: 20px 0;
+}
+
+#listRemove {
+    background-color: #e74c3c;
+    padding: 3px 6px;
+    color: #fff;
+    border: 1px solid #c0392b;
+    border-bottom: 3px solid #c0392b;
+    transition: all linear 0.2s;
+    border-radius: 2px;
+}
+
+#listRemove:hover {
+    background-color: #c0392b;
+}
+
+#listRemove:active,
+#listRemove:focus {
+    background-color: #c0392b;
+    border-bottom: 3px solid #c0392b;
+    box-shadow: rgba(0, 0, 0, 0.29) 0 4px 12px -4px inset;
+}

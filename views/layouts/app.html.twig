@@ -1,0 +1,38 @@
+{# Begin Layout Template #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{# UTF-8 compatible #}
+	<meta charset="UTF-8">
+
+	{# Responsiveness #}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, minimum-scale=1.0">
+	<title>Todo List</title>
+
+	{# Get Google Font #}
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Shadows+Into+Light+Two" rel="stylesheet">
+
+	{# Custom CSS #}
+	<link rel="stylesheet" href="assets/css/main.css">
+
+	{# Load Vue.js #}
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	{# Load axios.js - for HTTP requests #}
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	{# Set global vars #}
+	<script type="text/javascript">
+		base_url = 'http://{{ base_url() }}';
+	</script>
+</head>
+<body>
+	{# Begin content #}
+	<div id="app">
+		{% block content %} {% endblock %}
+	</div>
+	{# /Begin content #}
+
+	{# Custom JS #}
+	<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "symfony/var-dumper": "^3.4",
+        "slim/twig-view": "^2.4",
+        "illuminate/database": "*",
+        "robmorgan/phinx": "0.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+          "Todo\\": "app"
+        }
+    }
+}
