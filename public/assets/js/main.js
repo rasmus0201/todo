@@ -16,7 +16,7 @@ let todoForm = Vue.component('todo-form', {
         //On load / init
         init: function() {
             //Get list's settings
-            axios.get('/api/lists/' + update.dataset.listId)
+            axios.get(base_url + '/api/lists/' + update.dataset.listId)
                 .then(response => {
                     //Update the values/data of the component
                     this.title = response.data.list.name;
@@ -28,7 +28,7 @@ let todoForm = Vue.component('todo-form', {
                 });
 
             //Get list's items
-            axios.get('/api/lists/' + update.dataset.listId + '/items')
+            axios.get(base_url + '/api/lists/' + update.dataset.listId + '/items')
                 .then(response => {
                     let items = response.data.items;
 
@@ -53,7 +53,7 @@ let todoForm = Vue.component('todo-form', {
         createItem: function(event) {
 
             //Make a call to API with the new item's name
-            axios.post('/api/lists/' + update.dataset.listId + '/items', {
+            axios.post(base_url + '/api/lists/' + update.dataset.listId + '/items', {
                     name: inputItem.value
                 })
                 .then(response => {
@@ -87,7 +87,7 @@ let todoForm = Vue.component('todo-form', {
                 if (this.todos[i].id == itemId) {
 
                     //Make api call (delete method)
-                    axios.delete('/api/lists/' + update.dataset.listId + '/items/' + this.todos[i].id)
+                    axios.delete(base_url + '/api/lists/' + update.dataset.listId + '/items/' + this.todos[i].id)
                         .then(response => {
                             //When there's a success we can remove the element from the array
                             this.todos.splice(i, 1);
@@ -114,7 +114,7 @@ let todoForm = Vue.component('todo-form', {
                 if (this.todos[i].id == itemId) {
 
                     //API call, with the new data
-                    axios.post('/api/lists/' + update.dataset.listId + '/items/' + this.todos[i].id, newData)
+                    axios.post(base_url + '/api/lists/' + update.dataset.listId + '/items/' + this.todos[i].id, newData)
                         .then(response => {
                             //On success we can update the list name and status
                             this.todos[i].name = response.data.item.name;
@@ -133,7 +133,7 @@ let todoForm = Vue.component('todo-form', {
         //Delete the entire list
         removeList: function() {
             //API Call (method: delete)
-            axios.delete('/api/lists/' + update.dataset.listId)
+            axios.delete(base_url + '/api/lists/' + update.dataset.listId)
                 .then(response => {
                     //This page technically doesn't exist anymore now
                     //Redirect to homepage
@@ -151,7 +151,7 @@ let todoForm = Vue.component('todo-form', {
             this.editTitle = 0;
 
             //Make call to API, to update list with new data
-            axios.post('/api/lists/' + update.dataset.listId, {
+            axios.post(base_url + '/api/lists/' + update.dataset.listId, {
                     name: this.title,
                     status: this.status,
                 })
@@ -393,7 +393,7 @@ let VueApp = new Vue({
         create_list: function(event) {
 
             //Use axios.post - returns a Promise
-            axios.post('/api/lists')
+            axios.post(base_url + '/api/lists')
                 .then(response => {
                     //Check if we actually got a URL back
                     if (response.data.url) {

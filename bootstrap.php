@@ -49,7 +49,7 @@ $container['view'] = function ($container) {
     ]);
 
     //Add base url to twig as an extension for easy use
-    $baseURL = rtrim(str_ireplace('index.php', '', $container->get('request')->getUri()->getHost()), '/');
+    $baseURL = rtrim(str_ireplace('index.php', '', $container->get('request')->getUri()->getHost() . $container->get('request')->getUri()->getBasePath()), '/');
     $view->addExtension(new Slim\Views\TwigExtension($container->get('router'), $baseURL));
 
     return $view;
