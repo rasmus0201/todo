@@ -13,3 +13,7 @@ To install DB
 
 
 Now you should be good to go!
+
+---
+
+OR: Try online on [rasmusbundsgaard.dk/todo/public](http://rasmusbundsgaard.dk/todo/public)
