@@ -5,6 +5,7 @@ namespace Todo\Migration;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Phinx\Migration\AbstractMigration;
 
+//Setup Phinx migrations
 class Migration extends AbstractMigration
 {
     /** @var \Illuminate\Database\Capsule\Manager $capsule */

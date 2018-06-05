@@ -20,42 +20,64 @@ class __TwigTemplate_89fcbb1ce47f21dc79164b5995d49019c29e1daaa94e71791a4cfd5dd23
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
+        // line 2
         echo "<!DOCTYPE html>
 <html lang=\"en\">
 <head>
-\t<meta charset=\"UTF-8\">
-\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.5, minimum-scale=1.0\">
-\t<title>Todo List</title>
-\t<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Shadows+Into+Light+Two\" rel=\"stylesheet\">
-\t<link rel=\"stylesheet\" href=\"assets/css/main.css\">
+\t";
+        // line 6
+        echo "\t<meta charset=\"UTF-8\">
 
-\t<script src=\"https://cdn.jsdelivr.net/npm/vue/dist/vue.js\"></script>
-\t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
-\t<script type=\"text/javascript\">
-\t\tbase_url = 'http://";
+\t";
+        // line 9
+        echo "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.5, minimum-scale=1.0\">
+\t<title>Todo List</title>
+
+\t";
         // line 13
+        echo "\t<link href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Shadows+Into+Light+Two\" rel=\"stylesheet\">
+
+\t";
+        // line 16
+        echo "\t<link rel=\"stylesheet\" href=\"assets/css/main.css\">
+
+\t";
+        // line 19
+        echo "\t<script src=\"https://cdn.jsdelivr.net/npm/vue/dist/vue.js\"></script>
+\t";
+        // line 21
+        echo "\t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
+
+\t";
+        // line 24
+        echo "\t<script type=\"text/javascript\">
+\t\tbase_url = 'http://";
+        // line 25
         echo twig_escape_filter($this->env, $this->extensions['Slim\Views\TwigExtension']->baseUrl(), "html", null, true);
         echo "';
 \t</script>
 </head>
 <body>
-\t<div id=\"app\">
+\t";
+        // line 30
+        echo "\t<div id=\"app\">
 \t\t";
-        // line 18
+        // line 31
         $this->displayBlock('content', $context, $blocks);
-        // line 19
+        // line 32
         echo "\t</div>
-
-
-\t<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>
-\t<script src=\"assets/js/main.js\"></script>
+\t";
+        // line 34
+        echo "
+\t";
+        // line 36
+        echo "\t<script src=\"assets/js/main.js\"></script>
 </body>
 </html>
 ";
     }
 
-    // line 18
+    // line 31
     public function block_content($context, array $blocks = array())
     {
         echo " ";
@@ -73,7 +95,7 @@ class __TwigTemplate_89fcbb1ce47f21dc79164b5995d49019c29e1daaa94e71791a4cfd5dd23
 
     public function getDebugInfo()
     {
-        return array (  59 => 18,  48 => 19,  46 => 18,  38 => 13,  24 => 1,);
+        return array (  81 => 31,  74 => 36,  71 => 34,  68 => 32,  66 => 31,  63 => 30,  56 => 25,  53 => 24,  49 => 21,  46 => 19,  42 => 16,  38 => 13,  33 => 9,  29 => 6,  24 => 2,);
     }
 
     public function getSourceContext()

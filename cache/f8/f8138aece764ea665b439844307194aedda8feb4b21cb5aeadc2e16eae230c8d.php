@@ -32,11 +32,13 @@ class __TwigTemplate_b3a43b4336764e9426a8edb97a276169ed1422a338616b4ca321594d387
     public function block_content($context, array $blocks = array())
     {
         // line 6
-        echo "    <!-- New Todo List -->
-    <div class=\"box list dog-ear\">
+        echo "    ";
+        // line 7
+        echo "    <div class=\"box list dog-ear\">
 
-        <!-- Vue.js - create new list and redirect on click -->
-        <div id=\"create\" v-on:click.prevent=\"create_list\">
+        ";
+        // line 10
+        echo "        <div id=\"create\" v-on:click.prevent=\"create_list\">
             <h1 class=\"header\">Todo List</h1>
             <form class=\"item-add\">
                 <input type=\"text\" name=\"name\" placeholder=\"Skriv en ny to-do her.\" class=\"input\" autocomplete=\"off\" required>
@@ -44,19 +46,20 @@ class __TwigTemplate_b3a43b4336764e9426a8edb97a276169ed1422a338616b4ca321594d387
             </form>
         </div>
     </div>
-    <!-- / New Todo List -->
-
-    <!-- Check to see if there are any public todo lists -->
+    ";
+        // line 19
+        echo "
     ";
         // line 21
+        echo "    ";
         if (twig_length_filter($this->env, ($context["lists"] ?? null))) {
             // line 22
             echo "        <div class=\"box list dog-ear\">
             <h1 class=\"header\">Offentlige Todo Liste</h1>
             <ul>
-                <!-- Loop all public lists, and get their name and url -->
                 ";
             // line 26
+            echo "                ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["lists"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["list"]) {
@@ -90,7 +93,7 @@ class __TwigTemplate_b3a43b4336764e9426a8edb97a276169ed1422a338616b4ca321594d387
 
     public function getDebugInfo()
     {
-        return array (  75 => 29,  64 => 27,  60 => 26,  54 => 22,  52 => 21,  35 => 6,  32 => 5,  15 => 2,);
+        return array (  78 => 29,  67 => 27,  62 => 26,  57 => 22,  54 => 21,  51 => 19,  41 => 10,  37 => 7,  35 => 6,  32 => 5,  15 => 2,);
     }
 
     public function getSourceContext()

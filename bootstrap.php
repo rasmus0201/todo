@@ -1,23 +1,25 @@
 <?php
 /*
  * Framework: Slim 3
- * Helpers: Symfony VarDumper
+ * Helpers: Symfony VarDumper, Eloquent, Twig, Vue.js
 */
 
 //Load dependencies
 require '../vendor/autoload.php';
+
+use \Slim\App;
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+//Load config file
 require '../config.php';
 
 //Load helper functions
 require '../app/Helpers/helper.php';
 
-use \Slim\App;
-use Illuminate\Database\Capsule\Manager as Capsule;
-
 //Create Slim App instance
 $app = new App([
     'settings' => [
-        'displayErrorDetails' => true
+        'displayErrorDetails' => true //debug = true
     ]
 ]);
 
@@ -46,8 +48,17 @@ $container['view'] = function ($container) {
         'cache' => '../cache'
     ]);
 
-    $basePath = rtrim(str_ireplace('index.php', '', $container->get('request')->getUri()->getHost()), '/');
-    $view->addExtension(new Slim\Views\TwigExtension($container->get('router'), $basePath));
+    //Add base url to twig as an extension for easy use
+    $baseURL = rtrim(str_ireplace('index.php', '', $container->get('request')->getUri()->getHost()), '/');
+    $view->addExtension(new Slim\Views\TwigExtension($container->get('router'), $baseURL));
 
     return $view;
+};
+
+//Override the default Not Found Handler
+//AKA: Custom 404 page
+$container['notFoundHandler'] = function ($container) {
+    return function ($request, $response) use ($container) {
+        return $container['view']->render($response->withStatus(404), 'error/404.html.twig');
+    };
 };

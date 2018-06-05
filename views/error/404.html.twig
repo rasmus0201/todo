@@ -1,0 +1,31 @@
+{# Begin Layout Template #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{# UTF-8 compatible #}
+	<meta charset="UTF-8">
+
+	{# Responsiveness #}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, minimum-scale=1.0">
+	<title>Todo List - 404 Page not found</title>
+
+	{# Get Google Font #}
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Shadows+Into+Light+Two" rel="stylesheet">
+
+	{# Custom CSS #}
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+	{# Begin content #}
+	<div id="app">
+
+		{# Custom 404 page - header + link to home #}
+        <div class="box list dog-ear">
+            <h1 class="header">404 - Page not found</h1>
+
+            <a href="http://{{ base_url() }}">Please, go home</a>
+        </div>
+	</div>
+	{# /Begin content #}
+</body>
+</html>
