@@ -5,7 +5,7 @@ let todoForm = Vue.component('todo-form', {
         return {
             title: '', //List title
             status: '', //List status (private||public)
-            editTitle: 0, //Are we editing the title?
+            editTitle: false, //Are we editing the title?
 
             newTodoText: '', //temporary for a new todo item
             nextTodoId: 1, //Next todo item ID
@@ -148,7 +148,7 @@ let todoForm = Vue.component('todo-form', {
         //Update the todo list settings
         updateList: function() {
             //Make sure we are not editing the title anymore
-            this.editTitle = 0;
+            this.editTitle = false;
 
             //Make call to API, to update list with new data
             axios.post(base_url + '/api/lists/' + update.dataset.listId, {
@@ -179,11 +179,11 @@ let todoForm = Vue.component('todo-form', {
     template: `
     <div class="todo-list">
 
-        <!-- Only show if the editTitle = false, and make sure to toggle on click -->
+        <!-- Only show if the editTitle == false, and make sure to toggle on click -->
         <h1 class="header" v-on:click.self="editTitle = false" v-show="!editTitle"
             v-on:click.stop="editTitle = !editTitle">{{ title }}</h1>
 
-        <!-- Only show if the editTitle = true, and toggle visibility on enter/blur -->
+        <!-- Only show if the editTitle == true, and toggle visibility on enter/blur -->
         <!-- Bind the variable title for updates -->
         <input
             v-show="editTitle"
