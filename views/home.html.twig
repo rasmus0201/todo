@@ -1,12 +1,7 @@
-{# Load template #}
 {% extends 'layouts/app.html.twig' %}
 
-{# Insert content #}
 {% block content %}
-    {# New Todo List #}
     <div class="box list dog-ear">
-
-        {# Vue.js - create new list and redirect on click #}
         <div id="create" v-on:click.prevent="create_list">
             <h1 class="header">Todo List</h1>
             <form class="item-add">
@@ -15,14 +10,11 @@
             </form>
         </div>
     </div>
-    {# / New Todo List #}
 
-    {# Check to see if there are any public todo lists #}
     {% if lists|length %}
         <div class="box list dog-ear">
             <h1 class="header">Offentlige Todo Liste</h1>
             <ul>
-                {# Loop all public lists, and get their name and url #}
                 {% for list in lists %}
                     <li><a href="{{ path_for('list', {'url': list.url}) }}">{{ list.name }}</a></li>
                 {% endfor %}
@@ -30,4 +22,3 @@
         </div>
     {% endif %}
 {% endblock content %}
-{# /Insert content #}

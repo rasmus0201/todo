@@ -1,17 +1,11 @@
-{# Load template #}
 {% extends 'layouts/app.html.twig' %}
 
-{# Insert content #}
 {% block content %}
-    {# Home URL #}
     <a href="{{ path_for('home') }}">Home</a>
 
     <div class="box list dog-ear">
-        {# Reference this particluar list #}
         <div id="update" data-list-id="{{ list.id }}" data-list-url="{{ list.url }}">
-            {# Vue.js component #}
             <todo-form></todo-form>
         </div>
     </div>
 {% endblock content %}
-{# /Insert content #}
