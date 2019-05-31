@@ -1,10 +1,11 @@
-# todo
+# Todo App
 Todo App - copy&amp;paste unique URLs
 
 To install:
 
 * Git clone this repo
-* Run webserver
+* `composer install`
+* Run the project on a PHP webserver (ex. mamp/xampp/valet etc.)
 * Change config.php to your specific database connection
 
 To install DB
@@ -16,4 +17,4 @@ Now you should be good to go!
 
 ---
 
-OR: Try online on [rasmusbundsgaard.dk/todo/public](http://rasmusbundsgaard.dk/todo/public)
+Try online on [rasmusbundsgaard.dk/todo/public](http://rasmusbundsgaard.dk/todo/public)

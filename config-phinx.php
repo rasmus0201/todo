@@ -1,7 +1,7 @@
 <?php
 require 'config.php';
 
-//Configure DB Migration handler
+// Configure DB Migration handler
 return [
     'paths' => [
         'migrations' => 'migrations'
