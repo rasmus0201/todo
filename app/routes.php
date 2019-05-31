@@ -5,34 +5,25 @@ use \Slim\Http\Response;
 use \Todo\Model\TodoList as TodoList;
 use \Todo\Model\TodoItem as TodoItem;
 
-// Homepage
 $app->get('/', function (Request $request, Response $response, $args = []) {
-    // Get all lists with status = public
     $lists = TodoList::select('id', 'url', 'name', 'status')->where('status', 'public')->get();
 
-    // Render view
     return $this->view->render($response, 'home.html.twig', [
         'lists' => $lists
     ]);
 })->setName('home');
 
-// Go to Todo list
 $app->get('/{url}', function (Request $request, Response $response, $args = []) {
-    // Fetch specified list
     $list = TodoList::where('url', $args['url'])->first();
 
     if (!$list) {
-        // Throw 404 error
         throw new \Slim\Exception\NotFoundException($request, $response);
     }
 
-    // Render view
     return $this->view->render($response, 'list.html.twig', [
         'list' => $list
     ]);
 })->setName('list');
-
-
 
 
 
@@ -59,8 +50,8 @@ $app->post('/api/lists', function (Request $request, Response $response, $args =
 
 
 // Get todo list
-$app->get('/api/lists/{listId}', function (Request $request, Response $response, $args = []) {
-    $list = TodoList::select('id', 'name', 'url', 'status')->where('id', $args['listId'])->first();
+$app->get('/api/lists/{slug}', function (Request $request, Response $response, $args = []) {
+    $list = TodoList::select('id', 'name', 'url', 'status')->where('url', $args['slug'])->first();
 
     if (!$list) {
         return $response->withJson([
@@ -78,8 +69,8 @@ $app->get('/api/lists/{listId}', function (Request $request, Response $response,
 
 
 // Update todo list
-$app->post('/api/lists/{listId}', function (Request $request, Response $response, $args = []) {
-    $list = TodoList::where('id', $args['listId'])->first();
+$app->post('/api/lists/{slug}', function (Request $request, Response $response, $args = []) {
+    $list = TodoList::where('url', $args['slug'])->first();
 
     if (!isset($request->getParams()['name'])) {
         return $response->withJson([
@@ -114,8 +105,8 @@ $app->post('/api/lists/{listId}', function (Request $request, Response $response
 
 
 // Delete todo list
-$app->delete('/api/lists/{listId}', function (Request $request, Response $response, $args = []) {
-    $list = TodoList::where('id', $args['listId'])->first();
+$app->delete('/api/lists/{slug}', function (Request $request, Response $response, $args = []) {
+    $list = TodoList::where('url', $args['slug'])->first();
 
     if (!$list) {
         return $response->withJson([
@@ -142,8 +133,8 @@ $app->delete('/api/lists/{listId}', function (Request $request, Response $respon
 
 
 // Get todo list's items
-$app->get('/api/lists/{listId}/items', function (Request $request, Response $response, $args = []) {
-    $list = TodoList::where('id', $args['listId'])->first();
+$app->get('/api/lists/{slug}/items', function (Request $request, Response $response, $args = []) {
+    $list = TodoList::where('url', $args['slug'])->first();
 
     if (!$list) {
         return $response->withJson([
@@ -163,8 +154,8 @@ $app->get('/api/lists/{listId}/items', function (Request $request, Response $res
 
 
 // Create todo list item
-$app->post('/api/lists/{listId}/items', function (Request $request, Response $response, $args = []) {
-    $list = TodoList::where('id', $args['listId'])->first();
+$app->post('/api/lists/{slug}/items', function (Request $request, Response $response, $args = []) {
+    $list = TodoList::where('url', $args['slug'])->first();
 
     $name = $request->getParams()['name'];
 
@@ -192,8 +183,8 @@ $app->post('/api/lists/{listId}/items', function (Request $request, Response $re
 
 
 // Update specific todo list's item
-$app->post('/api/lists/{listId}/items/{itemId}', function (Request $request, Response $response, $args = []) {
-    $list = TodoList::where('id', $args['listId'])->first();
+$app->post('/api/lists/{slug}/items/{itemId}', function (Request $request, Response $response, $args = []) {
+    $list = TodoList::where('url', $args['slug'])->first();
 
     if (!$list || !isset($request->getParams()['name']) || !isset($request->getParams()['status'])) {
         return $response->withJson([
@@ -228,8 +219,8 @@ $app->post('/api/lists/{listId}/items/{itemId}', function (Request $request, Res
 
 
 // Delete specific todo list's item
-$app->delete('/api/lists/{listId}/items/{itemId}', function (Request $request, Response $response, $args = []) {
-    $list = TodoList::where('id', $args['listId'])->first();
+$app->delete('/api/lists/{slug}/items/{itemId}', function (Request $request, Response $response, $args = []) {
+    $list = TodoList::where('url', $args['slug'])->first();
 
     if (!$list) {
         return $response->withJson([

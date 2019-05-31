@@ -15,7 +15,7 @@ require '../app/Helpers/helper.php';
 
 $app = new App([
     'settings' => [
-        'displayErrorDetails' => true // debug on
+        'displayErrorDetails' => true // Debug on
     ]
 ]);
 
@@ -29,7 +29,7 @@ $capsule->addConnection([
     'username' => DB_USER,
     'password' => DB_PASSWORD,
     'charset' => 'utf8',
-    'collation' => 'utf8_unicode_ci',
+    'collation' => 'utf8_unicode_ci'
 ]);
 $capsule->bootEloquent();
 $capsule->setAsGlobal();

@@ -9,6 +9,7 @@ class Migration extends AbstractMigration
 {
     /** @var \Illuminate\Database\Capsule\Manager $capsule */
     public $capsule;
+
     /** @var \Illuminate\Database\Schema\Builder $capsule */
     public $schema;
 
@@ -23,7 +24,7 @@ class Migration extends AbstractMigration
             'username'  => DB_USER,
             'password'  => DB_PASSWORD,
             'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'collation' => 'utf8_unicode_ci'
         ]);
 
         $this->capsule->bootEloquent();
