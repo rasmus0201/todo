@@ -4,7 +4,7 @@ Todo App - copy&amp;paste unique URLs
 To install:
 
 * Git clone this repo
-* `composer install`
+* Do a `composer install`
 * Run the project on a PHP webserver (ex. mamp/xampp/valet etc.)
 * Change config.php to your specific database connection
 
