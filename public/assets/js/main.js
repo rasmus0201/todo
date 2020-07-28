@@ -186,7 +186,7 @@ let todoForm = Vue.component('todo-form', {
 
         <!-- Create new item -->
         <form class="item-add" method="post" v-on:submit.prevent="createItem">
-            <input id="inputItem" v-model="newTodoText" type="text" placeholder="Skriv en ny to-do her." class="input" autocomplete="off" required>
+            <input id="inputItem" v-model="newTodoText" type="text" placeholder="Skriv en ny to-do her." class="input" autocomplete="off" autofocus required>
             <input id="submitItem" type="submit" value="Tilføj" class="submit">
         </form>
 
