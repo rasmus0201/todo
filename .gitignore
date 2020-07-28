@@ -1,5 +1,6 @@
 .DS_Store
 
+config.php
 vendor
 cache/*
 !cache/.gitkeep
